@@ -9,6 +9,14 @@
       :characters="team"
       v-on:clicked="showSetTeamDialog(true)"
     ></team-view>
+    <v-footer>
+      <v-select
+        :label="$t('choose_language')"
+        :items="['jp', 'en-US', 'zh-TW']"
+        v-model="$i18n.locale"
+        :width="100"
+      ></v-select>
+    </v-footer>
   </div>
 </template>
 
