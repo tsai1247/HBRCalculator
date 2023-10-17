@@ -10,7 +10,7 @@
       ></v-list-item>
       <v-divider></v-divider>
       <v-list-item
-        v-for="{id, name, src} in character"
+        v-for="{id, name, src} in characterInfo.basic"
         :key="id"
         :class="isSelectedClass(id)"
         :disabled="isDisabled(id)"
@@ -31,7 +31,7 @@
 <script setup>
 
 import { ref, computed, defineEmits, defineProps, watch } from 'vue';
-import character from '@/common/character.json'
+import characterInfo from '@/common/characterInfo'
 import script from '@/common/script'
 
 const emit = defineEmits(['close', 'update']);
@@ -39,7 +39,7 @@ const props = defineProps({
   value: Boolean,
 });
 
-const selectedCharacters = ref([character[0]]);
+const selectedCharacters = ref([characterInfo.basic[0]]);
 watch(() => selectedCharacters.value, () => {
   emit('update', selectedCharacters.value)
 }, {deep: true})
