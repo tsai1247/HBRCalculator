@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-  import { watch, defineEmits, defineProps } from 'vue';
+  import { watch } from 'vue';
   import script from '@/common/script'
 
   const emit = defineEmits(['clicked']);

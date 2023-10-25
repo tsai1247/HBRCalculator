@@ -30,7 +30,7 @@
 
 <script setup>
 
-import { ref, computed, defineEmits, defineProps, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import characterInfo from '@/common/characterInfo'
 import script from '@/common/script'
 
