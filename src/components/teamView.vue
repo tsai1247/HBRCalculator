@@ -1,16 +1,29 @@
 <template>
   <div>
-    <v-footer>
-      <v-list-item
+    <v-footer app="true">
+      <div
         v-for="{id, src} in props.characters"
         :key="id"
-        @click="characterClicked"
+        class="ma-2"
       >
-        <img
-          width="100"
-          :src="script.getImageUrl(src)"
+        <v-autocomplete
+          :items=" [
+            '增強',
+            '臥龍演武斬',
+            '軟化',
+            '萬紫千紅'
+          ]"
+          multiple
+          chips
         >
-      </v-list-item>
+        </v-autocomplete>
+        <v-list-item @click="characterClicked">
+          <img
+            width="100"
+            :src="script.getImageUrl(src)"
+          >
+        </v-list-item>
+      </div>
     </v-footer>
   </div>
 </template>

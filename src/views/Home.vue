@@ -1,5 +1,21 @@
 <template>
   <div>
+    <v-header app="true">
+      <v-row>
+        <v-col
+          cols="2"
+          class="ma-2"
+        >
+          <v-select
+            :label="$t('choose_language')"
+            :items="['jp', 'en-US', 'zh-TW']"
+            v-model="$i18n.locale"
+            :width="100"
+          ></v-select>
+        </v-col>
+      </v-row>
+    </v-header>
+
     <set-team
       :value="setTeamDialog"
       v-on:update="updateTeam"
@@ -7,16 +23,8 @@
     ></set-team>
     <team-view
       :characters="team"
-      v-on:clicked="showSetTeamDialog(true)"
+      v-on:clicked="showSetTeamDialog()"
     ></team-view>
-    <v-footer>
-      <v-select
-        :label="$t('choose_language')"
-        :items="['jp', 'en-US', 'zh-TW']"
-        v-model="$i18n.locale"
-        :width="100"
-      ></v-select>
-    </v-footer>
   </div>
 </template>
 
@@ -32,8 +40,8 @@ function updateTeam(newList) {
 }
 
 const setTeamDialog = ref(true);
-function showSetTeamDialog(value) {
-  setTeamDialog.value = value;
+function showSetTeamDialog(value = null) {
+  setTeamDialog.value = value ?? !setTeamDialog.value;
 }
 
 </script>
