@@ -23,8 +23,8 @@
     ></set-team>
     <team-view
       :characters="team"
-      v-on:clicked="showSetTeamDialog()"
-      v-on:setSkill="showSetSkillDialog()"
+      v-on:clicked="showSetTeamDialog(true)"
+      v-on:setSkill="showSetSkillDialog"
     ></team-view>
     <set-skill
       :value="setSkillDialog"
@@ -45,7 +45,7 @@ function updateTeam(newList) {
   team.value = newList;
 }
 
-const setTeamDialog = ref(true);
+const setTeamDialog = ref(false);
 function showSetTeamDialog(value = null) {
   setTeamDialog.value = value ?? !setTeamDialog.value;
 }
