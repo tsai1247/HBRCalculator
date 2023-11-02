@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/HBRCalculator',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
       {

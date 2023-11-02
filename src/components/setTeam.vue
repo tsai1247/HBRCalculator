@@ -13,7 +13,7 @@
         v-for="{id, name, src} in characterInfo.basic"
         :key="id"
         :class="isSelectedClass(id)"
-        :disabled="isDisabled(id)"
+        :disabled="isDisabled(id) === true"
         @click="characterClicked(id, name, src)"
       >
         {{ $t(name) }}
@@ -77,7 +77,7 @@ function selectedIndex(id) {
 
 function isDisabled(id){
   const target = selectedCharacters.value.find(item => item.id === id);
-  return selectedCount.value >= 6 && !target || selectedCount.value == 1 && target;
+  return selectedCount.value >= 6 && target === undefined || selectedCount.value == 1 && target !== undefined;
 }
 
 </script>

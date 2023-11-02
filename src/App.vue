@@ -1,8 +1,5 @@
 <template>
-  <v-app
-    id="app"
-    full-height="true"
-  >
+  <v-app id="app">
     <home></home>
   </v-app>
 </template>

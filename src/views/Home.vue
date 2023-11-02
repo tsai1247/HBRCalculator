@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header app="true">
+    <div>
       <v-row>
         <v-col
           cols="2"
@@ -14,7 +14,7 @@
           ></v-select>
         </v-col>
       </v-row>
-    </v-header>
+    </div>
 
     <set-team
       :value="setTeamDialog"

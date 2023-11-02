@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer app="true">
+    <v-footer :app="true">
       <div
         v-for="{id, src} in props.characters"
         :key="id"
