@@ -6,18 +6,12 @@
         :key="id"
         class="ma-2"
       >
-        <v-autocomplete
-          :items=" [
-            '增強',
-            '臥龍演武斬',
-            '軟化',
-            '萬紫千紅'
-          ]"
-          multiple
-          chips
+        <v-list-item
+          @mousedown="character_mousedown"
+          @drag="character_drag"
+          @mouseup="character_mouseup"
+          @click="null"
         >
-        </v-autocomplete>
-        <v-list-item @click="characterClicked">
           <img
             width="100"
             :src="script.getImageUrl(src)"
@@ -29,10 +23,10 @@
 </template>
 
 <script setup>
-  import { watch } from 'vue';
+  import { ref, watch } from 'vue';
   import script from '@/common/script'
 
-  const emit = defineEmits(['clicked']);
+  const emit = defineEmits(['clicked', 'setSkill']);
   const props = defineProps({
     characters: Array
   });
@@ -40,7 +34,31 @@
   watch( () => props.characters, () => {
   })
 
-  function characterClicked() {
+  const timeOutEvent = ref(0);
+  function character_mousedown() {
+    timeOutEvent.value = setTimeout(() => {
+      longPress()
+    }, 400);
+    return false;
+  }
+
+  const showSetSkillDialog = ref(false);
+  function character_mouseup() {
+    clearTimeout(timeOutEvent.value);
+    if(timeOutEvent.value != 0) {
+      showSetSkillDialog.value = !showSetSkillDialog.value;
+      emit('setSkill');
+    }
+    return false;
+  }
+
+  function character_drag() {
+    clearTimeout(timeOutEvent.value);
+    timeOutEvent.value = 0;
+  }
+
+  function longPress() {
+    timeOutEvent.value = 0
     emit('clicked');
   }
 </script>

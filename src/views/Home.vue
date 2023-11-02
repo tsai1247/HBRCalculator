@@ -24,7 +24,12 @@
     <team-view
       :characters="team"
       v-on:clicked="showSetTeamDialog()"
+      v-on:setSkill="showSetSkillDialog()"
     ></team-view>
+    <set-skill
+      :value="setSkillDialog"
+      v-on:close="showSetSkillDialog(false)"
+    ></set-skill>
   </div>
 </template>
 
@@ -33,6 +38,7 @@ import { ref } from 'vue'
 import characterInfo from '@/common/characterInfo';
 import teamView from '@/components/teamView.vue';
 import setTeam from '@/components/setTeam.vue';
+import setSkill from '@/components/setSkill.vue';
 const team = ref([characterInfo.basic[0]]);
 
 function updateTeam(newList) {
@@ -42,6 +48,11 @@ function updateTeam(newList) {
 const setTeamDialog = ref(true);
 function showSetTeamDialog(value = null) {
   setTeamDialog.value = value ?? !setTeamDialog.value;
+}
+
+const setSkillDialog = ref(false);
+function showSetSkillDialog(value = null) {
+  setSkillDialog.value = value ?? !setSkillDialog.value;
 }
 
 </script>
