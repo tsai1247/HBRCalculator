@@ -39,7 +39,7 @@ const props = defineProps({
   value: Boolean,
 });
 
-const selectedCharacters = ref([characterInfo.basic[0]]);
+const selectedCharacters = ref(characterInfo.basic.slice(0, 6));
 watch(() => selectedCharacters.value, () => {
   emit('update', selectedCharacters.value)
 }, {deep: true})
@@ -67,7 +67,6 @@ function isSelectedClass(id) {
 }
 
 function closeDialog() {
-  console.log('close');
   emit('close');
 }
 
