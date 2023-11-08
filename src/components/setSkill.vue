@@ -7,10 +7,26 @@
     >
       <template v-slot:default="{ item }">
         <div class="ma-2">
-          <v-tooltip
-            :text="`${t(item.description)}  已選擇 ${item.count ?? 0} 次`"
-            class="tooltip"
-          >
+          <v-tooltip class="tooltip">
+            <template v-slot:default>
+              <div>
+                <div>
+                  {{$t(item.description)}}
+                </div>
+                <div
+                  v-if="item.count"
+                  class="selected"
+                >
+                  已選擇 {{item.count}} 次
+                </div>
+                <div
+                  v-else
+                  class="noselected"
+                >
+                  已選擇 0 次
+                </div>
+              </div>
+            </template>
             <template v-slot:activator="{ props }">
               <v-btn
                 v-bind="props"
@@ -83,5 +99,13 @@ function selectSkill(name, step = 1) {
 
   .purple {
     color: purple;
+  }
+
+  .selected {
+    color: lightgreen;
+  }
+
+  .noselected {
+    color: gray;
   }
 </style>
