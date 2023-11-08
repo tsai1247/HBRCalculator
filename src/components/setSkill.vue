@@ -1,66 +1,75 @@
 <template>
   <div v-if="props.value">
-    <v-virtual-scroll
-      height="100%"
-      width="100%"
-      :items="skillList"
-    >
-      <template v-slot:default="{ item }">
-        <div class="ma-2">
-          <v-tooltip class="tooltip">
-            <template v-slot:default>
-              <div>
-                <div>
-                  {{$t(item.description)}}
-                </div>
-                <div
-                  v-if="item.count"
-                  class="selected"
-                >
-                  已選擇 {{item.count}} 次
-                </div>
-                <div
-                  v-else
-                  class="noselected"
-                >
-                  已選擇 0 次
-                </div>
-              </div>
-            </template>
-            <template v-slot:activator="{ props }">
-              <v-btn
-                v-bind="props"
-                @click="selectSkill(item.name)"
-                @contextmenu.prevent="selectSkill(item.name, -1)"
-                rounded
-                text
-                height="100%"
-              >
-                <div class="text-left">
-                  <span class="text-h6 font-weight-bold">
-                    {{$t(item.name)}}
-                    <span
-                      v-for="n in item.count"
-                      :key="n"
-                      class="ml-1 purple"
-                    >●</span>
-                  </span>
-                  <v-spacer />
-                  <v-chip
-                    v-for="tag in item.tags"
-                    :key="tag"
-                    class="ma-2"
-                    color="purple"
-                    text-color="white"
-                  > {{ $t(tag) }} </v-chip>
-                </div>
+    <v-row>
+      <v-col cols="4">
+        <v-virtual-scroll
+          height="400px"
+          :items="skillList"
+        >
+          <template v-slot:default="{ item }">
+            <div class="ma-4">
+              <v-tooltip class="tooltip">
+                <template v-slot:default>
+                  <div>
+                    <div>
+                      {{$t(item.description)}}
+                    </div>
+                    <div
+                      v-if="item.count"
+                      class="selected"
+                    >
+                      已選擇 {{item.count}} 次
+                    </div>
+                    <div
+                      v-else
+                      class="noselected"
+                    >
+                      已選擇 0 次
+                    </div>
+                  </div>
+                </template>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    @click="selectSkill(item.name)"
+                    @contextmenu.prevent="selectSkill(item.name, -1)"
+                    rounded
+                    text
+                    height="100%"
+                  >
+                    <div class="text-left">
+                      <span class="text-h6 font-weight-bold">
+                        {{$t(item.name)}}
+                        <span
+                          v-for="n in item.count"
+                          :key="n"
+                          class="ml-1 purple"
+                        >●</span>
+                      </span>
+                      <v-spacer />
+                      <v-chip
+                        v-for="tag in item.tags"
+                        :key="tag"
+                        class="ma-2"
+                        color="purple"
+                        text-color="white"
+                      > {{ $t(tag) }} </v-chip>
+                      <v-chip
+                        v-if="item.hits"
+                        class="ma-2"
+                        color="purple"
+                        text-color="white"
+                      > {{item.hits}}{{ $t('t_tags_hits') }}</v-chip>
+                    </div>
 
-              </v-btn>
-            </template>
-          </v-tooltip>
-        </div>
-      </template>
-    </v-virtual-scroll>
+                  </v-btn>
+                </template>
+              </v-tooltip>
+            </div>
+          </template>
+        </v-virtual-scroll>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

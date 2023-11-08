@@ -94,6 +94,7 @@ const zhTW = {
   "t_tag_all": "對全體",
   "t_tag_any": "指定角色",
   "t_tag_skillAll": "技能傷害提升",
+  "t_tags_hits": "連擊",
 }
 
 export default zhTW
