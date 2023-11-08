@@ -45,13 +45,11 @@
     return false;
   }
 
-  const showSetSkillDialog = ref(false);
   function character_mouseup(id) {
     clearTimeout(timeOutEvent.value);
     if(timeOutEvent.value != 0) {
-      showSetSkillDialog.value = !showSetSkillDialog.value;
-      selectedCharacterId.value = showSetSkillDialog.value ? id : "";
-      emit('setSkill', id);
+      selectedCharacterId.value = selectedCharacterId.value !== id ? id : "";
+      emit('setSkill', selectedCharacterId.value);
     }
     return false;
   }
