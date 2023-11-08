@@ -7,7 +7,7 @@
           class="ma-2"
         >
           <v-select
-            :label="$t('choose_language')"
+            :label="$t('t_system_chooseLanguage')"
             :items="['jp', 'en-US', 'zh-TW']"
             v-model="$i18n.locale"
             :width="100"

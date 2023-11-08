@@ -5,7 +5,7 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
       <v-list-item
-        :title="$t('choose_character')"
+        :title="$t('t_system_chooseCharacter')"
         :subtitle="`${selectedCount} / 6`"
       ></v-list-item>
       <v-divider></v-divider>

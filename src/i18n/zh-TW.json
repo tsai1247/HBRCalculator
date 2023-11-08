@@ -1,11 +1,12 @@
 {
-  "kayamori": "茅森月歌",
-  "izumiyuki": "和泉由希",
-  "aikawameguki": "逢川惠",
-  "toujyoutsukasa": "東城司",
-  "asakurakarenn": "朝倉可憐",
-  "kunimitama": "國見玉",
-  "aoierika": "蒼井繪梨花",
-  "choose_character": "選擇角色",
-  "choose_language": "切換語言"
+  "t_system_chooseCharacter": "選擇角色",
+  "t_system_chooseLanguage": "切換語言",
+
+  "t_character_kayamori": "茅森月歌",
+  "t_character_izumiyuki": "和泉由希",
+  "t_character_aikawameguki": "逢川惠",
+  "t_character_toujyoutsukasa": "東城司",
+  "t_character_asakurakarenn": "朝倉可憐",
+  "t_character_kunimitama": "國見玉",
+  "t_character_aoierika": "蒼井繪梨花"
 }

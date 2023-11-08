@@ -9,38 +9,38 @@ import src_31B1 from '../assets/icon/aoierika.webp'
 const basic = [
   {
     "id": "31A1",
-    "name": "kayamori",
+    "name": "t_character_kayamori",
     "src": src_31A1
   },
   {
     "id": "31A2",
-    "name": "izumiyuki",
+    "name": "t_character_izumiyuki",
     "src": src_31A2
 
   },
   {
     "id": "31A3",
-    "name": "aikawameguki",
+    "name": "t_character_aikawameguki",
     "src": src_31A3
   },
   {
     "id": "31A4",
-    "name": "toujyoutsukasa",
+    "name": "t_character_toujyoutsukasa",
     "src": src_31A4
   },
   {
     "id": "31A5",
-    "name": "asakurakarenn",
+    "name": "t_character_asakurakarenn",
     "src": src_31A5
   },
   {
     "id": "31A6",
-    "name": "kunimitama",
+    "name": "t_character_kunimitama",
     "src": src_31A6
   },
   {
     "id": "31B1",
-    "name": "aoierika",
+    "name": "t_character_aoierika",
     "src": src_31B1
   }
 ]
