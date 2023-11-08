@@ -1,35 +1,54 @@
 <template>
   <div v-if="props.value">
-    <v-autocomplete
-      :items=" [
-            '增強',
-            '臥龍演武斬',
-            '軟化',
-            '萬紫千紅'
-          ]"
-      multiple
-      chips
+
+    <v-row
+      class="ma-2"
+      v-for="{count, name, description} in skillList"
+      :key="name"
     >
-    </v-autocomplete>
+      <v-col cols="1">
+        <div>{{ count ?? 0 }}</div>
+      </v-col>
+      <v-col cols="4">
+        <v-chip
+          @click="selectSkill(name)"
+          class="no-selectable"
+        >
+          <div>{{$t(name)}}</div>
+          <div>{{$t(description)}}</div>
+        </v-chip>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script setup>
 
 import { ref, computed, watch } from 'vue';
-
-const emit = defineEmits(['close']);
+import allSkillList from '@/common/skill.json'
 const props = defineProps({
   value: Boolean,
+  characterId: String
 });
 
-function closeDialog() {
-  emit('close');
+
+const skillList = ref([]);
+
+watch(() => props.characterId, () => {
+  skillList.value = allSkillList.filter((item) => {
+    return item.id === props.characterId
+  })[0]?.skills;
+})
+
+function selectSkill(name) {
+  const idx = skillList.value.findIndex(item => item.name === name);
+  const count = skillList.value[idx].count ?? 0;
+  skillList.value[idx].count = (count + 1) % 3;
 }
 
 </script>
 <style scoped>
-  .selected {
-    background: rgb(218, 218, 218);
+  .no-selectable {
+    user-select: none;
   }
 </style>

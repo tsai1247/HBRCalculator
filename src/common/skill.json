@@ -1,0 +1,81 @@
+[
+  {
+    "id": "31A1",
+    "skills": [
+      {
+        "name": "t_skill_31A1Skill01_name",
+        "description": "t_skill_31A1Skill01_description",
+        "tags": [
+          "t_tag_attack",
+          "t_tag_ST",
+          "t_tag_HPDealt"
+        ],
+        "hits": 2
+      },
+      {
+        "name": "t_skill_31A1Skill03_name",
+        "description": "t_skill_31A1Skill03_description",
+        "tags": [
+          "t_tag_heal",
+          "t_tag_vanguard"
+        ],
+        "hits": 0
+      },
+      {
+        "name": "t_skill_31A1Skill04_name",
+        "description": "t_skill_31A1Skill04_description",
+        "tags": [
+          "t_tag_attack",
+          "t_tag_ST",
+          "t_tag_DPDealt"
+        ],
+        "hits": 2
+      },
+      {
+        "name": "t_skill_31A1Skill06_name",
+        "description": "t_skill_31A1Skill06_description",
+        "tags": [
+          "t_tag_attack",
+          "t_tag_AOE",
+          "t_tag_HPDealt"
+        ],
+        "hits": 2
+      },
+      {
+        "name": "t_skill_31A1Skill51_name",
+        "description": "t_skill_31A1Skill51_description",
+        "tags": [
+          "t_tag_attack",
+          "t_tag_ST",
+          "t_tag_HPDealt"
+        ],
+        "hits": 9
+      }
+    ]
+  },
+  {
+    "id": "31A2",
+    "skills": [
+      {
+        "name": "t_skill_31A2Skill01_name",
+        "description": "t_skill_31A2Skill01_description",
+        "tags": [
+          "t_tag_attack",
+          "t_tag_AOE",
+          "t_tag_DPDealt"
+        ],
+        "hits": 3
+      },
+      {
+        "name": "t_skill_31A2Skill04_name",
+        "description": "t_skill_31A2Skill04_description",
+        "tags": [
+          "t_tag_buff",
+          "t_tag_self",
+          "t_tag_skillAll"
+        ],
+        "hits": 0
+      }
+    ]
+  }
+]

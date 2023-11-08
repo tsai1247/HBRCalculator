@@ -9,7 +9,7 @@
         <v-list-item
           @mousedown="character_mousedown"
           @drag="character_drag"
-          @mouseup="character_mouseup"
+          @mouseup="character_mouseup(id)"
           @click="null"
         >
           <img
@@ -43,11 +43,11 @@
   }
 
   const showSetSkillDialog = ref(false);
-  function character_mouseup() {
+  function character_mouseup(id) {
     clearTimeout(timeOutEvent.value);
     if(timeOutEvent.value != 0) {
       showSetSkillDialog.value = !showSetSkillDialog.value;
-      emit('setSkill');
+      emit('setSkill', id);
     }
     return false;
   }

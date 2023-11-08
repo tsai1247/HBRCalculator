@@ -8,5 +8,21 @@
   "t_character_toujyoutsukasa": "東城司",
   "t_character_asakurakarenn": "朝倉可憐",
   "t_character_kunimitama": "國見玉",
-  "t_character_aoierika": "蒼井繪梨花"
+  "t_character_aoierika": "蒼井繪梨花",
+  
+  "t_skill_31A1Skill01_name": "十字斬",
+  "t_skill_31A1Skill01_description": "用雙刀砍向敵人\n[對HP+30%]",
+  "t_skill_31A1Skill03_name": "回復",
+  "t_skill_31A1Skill03_description": "以神聖之光\n回復前衛的DP",
+  "t_skill_31A1Skill04_name": "全力破壞斬",
+  "t_skill_31A1Skill04_description": "使盡全身的力量砍向敵人\n[對DP+30%]",
+  "t_skill_31A1Skill06_name": "烈焰衝擊",
+  "t_skill_31A1Skill06_description": "用火焰斬擊砍向全體敵人\n[對HP+30%]",
+  "t_skill_31A1Skill51_name": "夢幻泡影",
+  "t_skill_31A1Skill51_description": "在空中起舞，描繪出軌跡\n給予單體敵人9連擊[對HP+30%]",
+
+  "t_skill_31A2Skill01_name": "毀滅爆裂炮",
+  "t_skill_31A2Skill01_description": "炮擊全體敵人[對DP+30%]",
+  "t_skill_31A2Skill04_name": "冷卻",
+  "t_skill_31A2Skill04_description": "提升自己的集中力\n大幅提升技能攻擊力"
 }
