@@ -1,7 +1,10 @@
 <template>
   <div v-if="props.value">
     <v-row>
-      <v-col cols="4">
+      <v-col
+        cols="4"
+        v-if="skillList && skillList.length"
+      >
         <v-virtual-scroll
           height="400px"
           :items="skillList"
@@ -69,6 +72,13 @@
           </template>
         </v-virtual-scroll>
       </v-col>
+      <v-col
+        cols="4"
+        class="ma-4"
+        v-else
+      >
+        <v-btn rounded> {{ $t("t_system_noSkillList") }} </v-btn>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -76,8 +86,6 @@
 <script setup>
 
 import { ref, computed, watch } from 'vue';
-import i18n from '@/plugins/i18n'
-const { t } = i18n.global
 
 import allSkillList from '@/common/skill.json'
 const props = defineProps({

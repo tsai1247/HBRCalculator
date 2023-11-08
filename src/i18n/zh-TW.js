@@ -80,6 +80,7 @@ const zhTW = {
   "t_skill_31A2Skill01_description": "炮擊全體敵人[對DP+30%]",
   "t_skill_31A2Skill04_name": "冷卻",
   "t_skill_31A2Skill04_description": "提升自己的集中力\n大幅提升技能攻擊力",
+  "t_system_noSkillList": "查無技能",
 
   // 技能tag
   "t_tag_attack": "攻擊",

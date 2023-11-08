@@ -42,8 +42,10 @@ import setSkill from '@/components/setSkill.vue';
 const team = ref(characterInfo.basic.slice(0, 6));
 
 
+const selectedId = ref("");
 function updateTeam(newList) {
   team.value = newList;
+  showSetSkillDialog(selectedId.value);
 }
 
 const setTeamDialog = ref(false);
@@ -52,7 +54,6 @@ function showSetTeamDialog(value = null) {
 }
 
 const setSkillDialog = ref(false);
-const selectedId = ref("");
 function showSetSkillDialog(id) {
   setSkillDialog.value = selectedId.value !== id;
   selectedId.value = selectedId.value !== id ? id : "";

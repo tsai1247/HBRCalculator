@@ -11,6 +11,7 @@
           @drag="character_drag"
           @mouseup="character_mouseup(id)"
           @click="null"
+          :class="isSelectedClass(id)"
         >
           <img
             width="100"
@@ -31,8 +32,10 @@
     characters: Array
   });
 
+  const selectedCharacterId = ref("");
   watch( () => props.characters, () => {
-  })
+    selectedCharacterId.value = "";
+  }, {deep: true})
 
   const timeOutEvent = ref(0);
   function character_mousedown() {
@@ -47,6 +50,7 @@
     clearTimeout(timeOutEvent.value);
     if(timeOutEvent.value != 0) {
       showSetSkillDialog.value = !showSetSkillDialog.value;
+      selectedCharacterId.value = showSetSkillDialog.value ? id : "";
       emit('setSkill', id);
     }
     return false;
@@ -61,10 +65,19 @@
     timeOutEvent.value = 0
     emit('clicked');
   }
+
+  function isSelectedClass(id) {
+  const target = id === selectedCharacterId.value;
+  return target ? 'selected' : '';
+}
 </script>
 
 <style scoped>
   .right-bar {
     float: right;
+  }
+
+  .selected {
+    background: rgb(218, 218, 218);
   }
 </style>

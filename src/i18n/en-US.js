@@ -2,6 +2,7 @@ const enUS = {
   // 系統相關
   "t_system_chooseCharacter": "Choose characters",
   "t_system_chooseLanguage": "Switch language",
+  "t_system_noSkillList": "No skill found",
 
   // 角色名稱
   "t_character_31A1": "Ruka Kayamori",

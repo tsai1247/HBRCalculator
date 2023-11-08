@@ -2,6 +2,7 @@ const jp = {
   // 系統相關
   "t_system_chooseCharacter": "役割の選択",
   "t_system_chooseLanguage": "言語を選択",
+  "t_system_noSkillList": "スキルがありません",
 
   // 角色名稱
   "t_character_31A1": "茅森 月歌",
