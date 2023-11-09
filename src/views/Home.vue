@@ -36,10 +36,13 @@
         ></set-skill>
       </v-col>
       <v-col cols="3">
-        <enemy></enemy>
+        <enemy
+          :enemyList="enemyList"
+          :defaultEnemy="selectedEnemy"
+          v-on:update="updateEnemy"
+        ></enemy>
       </v-col>
     </v-row>
-
   </div>
 </template>
 
@@ -50,6 +53,8 @@ import teamView from '@/components/teamView.vue';
 import setTeam from '@/components/setTeam.vue';
 import setSkill from '@/components/setSkill.vue';
 import enemy from '@/components/enemy.vue';
+import enemyList from '@/common/enemy';
+
 
 const team = ref(characterInfo.basic.slice(0, 6));
 import allSkillList from '@/common/skill.json'
@@ -77,6 +82,11 @@ function updateSkillList(id, skill, ability) {
   const idx = skills.value.findIndex(item => item.id === id)
   skills.value[idx].skills = skill;
   skills.value[idx].ability = ability;
+}
+
+const selectedEnemy = ref(null);
+function updateEnemy(newEnemy) {
+    selectedEnemy.value = newEnemy;
 }
 
 </script>

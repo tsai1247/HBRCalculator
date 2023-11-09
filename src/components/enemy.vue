@@ -1,30 +1,37 @@
 <template>
   <div>
     <v-autocomplete
-      v-model="result"
-      :items="EnemyList"
+      v-model="selectedEnemy"
+      :items="enemyList"
       item-title="Name"
       return-object
       :label="$t('t_system_emeny')"
     ></v-autocomplete>
-    <div v-if="false">{{ result }}</div>
   </div>
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import script from '@/common/script'
-  import EnemyList from '@/common/enemy';
+  import { ref, watch } from 'vue';
+
+  const emit = defineEmits(['update']);
   const props = defineProps({
-    selectedEnemy: Object
+    enemyList: Array,
+    defaultEnemy: Object
   });
 
-  const result = ref(null);
+  const selectedEnemy = ref(null);
+
+  watch(() => props.defaultEnemy, () => {
+    if(selectedEnemy.value !== props.defaultEnemy) {
+      selectedEnemy.value = props.defaultEnemy
+    }
+  })
+
+  watch(() => selectedEnemy.value, () => {
+    emit('update', selectedEnemy.value);
+  })
 
 </script>
 
 <style scoped>
-  .right-bar {
-    float: right;
-  }
 </style>

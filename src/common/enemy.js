@@ -1,4 +1,4 @@
-const EnemyList = [
+const enemyList = [
   {
     Id: 'Dimension_02_X_Feeler_02',
     Name: '疫災的招引者',
@@ -47,4 +47,4 @@ const EnemyList = [
 ]
 
 
-export default EnemyList
+export default enemyList
