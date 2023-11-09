@@ -79,33 +79,146 @@
       >
         <v-btn rounded> {{ $t("t_system_noSkillList") }} </v-btn>
       </v-col>
+      <v-col>
+        <v-row>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.DP"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_DP')"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.HP"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_HP')"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.STR"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_STR')"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.DEX"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_DEX')"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.CON"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_CON')"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.SPR"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_SPR')"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.WIS"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_WIS')"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              type="number"
+              v-model="ability.LUK"
+              @change="updateStatus"
+              min="1"
+              max="2000"
+              :label="$t('t_system_LUK')"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script setup>
 
-import { ref, computed, watch } from 'vue';
+import { ref, watch } from 'vue';
 
-import allSkillList from '@/common/skill.json'
+const emit = defineEmits(['update']);
 const props = defineProps({
   value: Boolean,
-  characterId: String
+  characterId: String,
+  allSkillList: Array
 });
 
 
 const skillList = ref([]);
+const ability = ref({});
 
 watch(() => props.characterId, () => {
-  skillList.value = allSkillList.filter((item) => {
+  const character = props.allSkillList.filter((item) => {
     return item.id === props.characterId
-  })[0]?.skills;
+  })[0];
+
+  skillList.value = character?.skills;
+  ability.value = character?.ability ?? {
+    DP: 1,
+    HP: 1,
+    STR: 1,
+    DEX: 1,
+    CON: 1,
+    SPR: 1,
+    WIS: 1,
+    LUK: 1
+  };
 })
+
 
 function selectSkill(name, step = 1) {
   const idx = skillList.value.findIndex(item => item.name === name);
   const count = skillList.value[idx].count ?? 0;
   skillList.value[idx].count = (count + 3 + step) % 3;
+  emit('update', props.characterId, skillList.value, ability.value);
+}
+
+function updateStatus() {
+  emit('update', props.characterId, skillList.value, ability.value);
 }
 
 </script>

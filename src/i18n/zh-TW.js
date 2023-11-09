@@ -2,6 +2,14 @@ const zhTW = {
   // 系統相關
   "t_system_chooseCharacter": "選擇角色",
   "t_system_chooseLanguage": "切換語言",
+  "t_system_HP": "HP",
+  "t_system_DP": "DP",
+  "t_system_STR": "力量",
+  "t_system_DEX": "靈巧",
+  "t_system_CON": "體力",
+  "t_system_SPR": "精神",
+  "t_system_WIS": "智力",
+  "t_system_LUK": "幸運",
 
   // 角色名稱
   "t_character_31A1": "茅森 月歌",

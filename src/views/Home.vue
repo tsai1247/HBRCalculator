@@ -28,8 +28,11 @@
     ></team-view>
     <set-skill
       :value="setSkillDialog"
+      :allSkillList="skills"
       :characterId="selectedId"
+      v-on:update="updateSkillList"
     ></set-skill>
+
   </div>
 </template>
 
@@ -40,6 +43,8 @@ import teamView from '@/components/teamView.vue';
 import setTeam from '@/components/setTeam.vue';
 import setSkill from '@/components/setSkill.vue';
 const team = ref(characterInfo.basic.slice(0, 6));
+import allSkillList from '@/common/skill.json'
+const skills = ref(allSkillList);
 
 
 const selectedId = ref("");
@@ -59,6 +64,11 @@ function showSetSkillDialog(id) {
   selectedId.value = id;
 }
 
+function updateSkillList(id, skill, ability) {
+  const idx = skills.value.findIndex(item => item.id === id)
+  skills.value[idx].skills = skill;
+  skills.value[idx].ability = ability;
+}
 
 </script>
 
