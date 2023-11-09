@@ -47,6 +47,4 @@ const EnemyList = [
 ]
 
 
-export default {
-  EnemyList
-}
+export default EnemyList

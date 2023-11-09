@@ -26,12 +26,19 @@
       v-on:clicked="showSetTeamDialog(true)"
       v-on:setSkill="showSetSkillDialog"
     ></team-view>
-    <set-skill
-      :value="setSkillDialog"
-      :allSkillList="skills"
-      :characterId="selectedId"
-      v-on:update="updateSkillList"
-    ></set-skill>
+    <v-row class="ma-1">
+      <v-col cols="9">
+        <set-skill
+          :value="setSkillDialog"
+          :allSkillList="skills"
+          :characterId="selectedId"
+          v-on:update="updateSkillList"
+        ></set-skill>
+      </v-col>
+      <v-col cols="3">
+        <enemy></enemy>
+      </v-col>
+    </v-row>
 
   </div>
 </template>
@@ -42,6 +49,8 @@ import characterInfo from '@/common/characterInfo';
 import teamView from '@/components/teamView.vue';
 import setTeam from '@/components/setTeam.vue';
 import setSkill from '@/components/setSkill.vue';
+import enemy from '@/components/enemy.vue';
+
 const team = ref(characterInfo.basic.slice(0, 6));
 import allSkillList from '@/common/skill.json'
 const skills = ref(allSkillList);

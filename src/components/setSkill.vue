@@ -2,7 +2,7 @@
   <div v-if="props.value">
     <v-row>
       <v-col
-        cols="4"
+        cols="6"
         v-if="skillList && skillList.length"
       >
         <v-virtual-scroll
@@ -73,7 +73,7 @@
         </v-virtual-scroll>
       </v-col>
       <v-col
-        cols="4"
+        cols="6"
         class="ma-4"
         v-else
       >
@@ -81,7 +81,7 @@
       </v-col>
       <v-col>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.DP"
@@ -91,7 +91,7 @@
               :label="$t('t_system_DP')"
             ></v-text-field>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.HP"
@@ -104,7 +104,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.STR"
@@ -114,7 +114,7 @@
               :label="$t('t_system_STR')"
             ></v-text-field>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.DEX"
@@ -127,7 +127,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.CON"
@@ -137,7 +137,7 @@
               :label="$t('t_system_CON')"
             ></v-text-field>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.SPR"
@@ -150,7 +150,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.WIS"
@@ -160,7 +160,7 @@
               :label="$t('t_system_WIS')"
             ></v-text-field>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="4">
             <v-text-field
               type="number"
               v-model="ability.LUK"

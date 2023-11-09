@@ -2,6 +2,7 @@ const zhTW = {
   // 系統相關
   "t_system_chooseCharacter": "選擇角色",
   "t_system_chooseLanguage": "切換語言",
+  "t_system_emeny": "敵人",
   "t_system_HP": "HP",
   "t_system_DP": "DP",
   "t_system_STR": "力量",
